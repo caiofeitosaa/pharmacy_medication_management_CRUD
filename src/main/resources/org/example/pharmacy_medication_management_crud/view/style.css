@@ -1,0 +1,25 @@
+.button {
+    -fx-text-fill: #9aa5dd;
+    -fx-font-family: "Inria Sans";
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-padding: 0;
+}
+.button:hover {
+    -fx-background-color: #CFDCF9;
+    -fx-cursor: hand;
+}
+
+.mainlabel {
+    -fx-text-fill: #9aa5dd;
+    -fx-font-family: "Inria Sans";
+    -fx-font-size: 35px;
+    -fx-font-weight: bold;
+    -fx-wrap-text: true;
+    -fx-alignment: CENTER;
+    -fx-text-alignment: CENTER;
+    -fx-pref-width: 409px;
+    -fx-pref-height: 174px;
+    -fx-padding: 0;
+}

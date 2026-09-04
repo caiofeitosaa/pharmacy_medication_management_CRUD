@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane id="frame" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="979.04" style="-fx-background-color: #9AA5DD;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane id="rectangle-7" layoutX="-62.0" layoutY="77.0" prefHeight="525.0" prefWidth="610.0" style="-fx-background-color: #CFDCF9; -fx-background-radius: 44.89;">
+         <children>
+            <Pane id="rectangle-8" layoutX="-2.0" layoutY="17.0" prefHeight="492.0" prefWidth="597.0" style="-fx-background-color: #2D2C2D; -fx-background-radius: 44.89;">
+               <children>
+                  <Label id="mainlabel" layoutX="117.0" layoutY="153.0" prefWidth="363.0" styleClass="mainlabel" stylesheets="@style.css" text="SISTEMA DE ESTOQUE DE MEDICAMENTOS" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="624.0" layoutY="77.0" prefHeight="78.0" prefWidth="284.0" style="-fx-background-color: #CFDCF9; -fx-background-radius: 44.89;">
+         <children>
+            <Button id="button" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="265.0" style="-fx-background-radius: 44.89; -fx-background-color: #2D2C2D;" stylesheets="@style.css" text="Cadastrar Medicamento" />
+         </children>
+      </Pane>
+      <Pane layoutX="624.0" layoutY="231.0" prefHeight="78.0" prefWidth="284.0" style="-fx-background-color: #CFDCF9; -fx-background-radius: 44.89;">
+         <children>
+            <Button id="button" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="265.0" style="-fx-background-radius: 44.89; -fx-background-color: #2D2C2D;" stylesheets="@style.css" text="Atualizar Estoque" />
+         </children>
+      </Pane>
+      <Pane layoutX="624.0" layoutY="380.0" prefHeight="78.0" prefWidth="284.0" style="-fx-background-color: #CFDCF9; -fx-background-radius: 44.89;">
+         <children>
+            <Button id="button" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="265.0" style="-fx-background-radius: 44.89; -fx-background-color: #2D2C2D;" stylesheets="@style.css" text="Remover Medicamentos" />
+         </children>
+      </Pane>
+      <Pane layoutX="624.0" layoutY="524.0" prefHeight="78.0" prefWidth="284.0" style="-fx-background-color: #CFDCF9; -fx-background-radius: 44.89;">
+         <children>
+            <Button id="button" layoutX="10.0" layoutY="7.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="265.0" style="-fx-background-radius: 44.89; -fx-background-color: #2D2C2D;" stylesheets="@style.css" text="Listar Estoque" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
