@@ -7,6 +7,7 @@ public class DataBaseConnection {
     private final String username = System.getenv("DB_USERNAME"); // getenv is a static method from System class that reads ambient variables
     private final String password = System.getenv("DB_PASSWORD");
 
+    // WORKING NICE
     public Connection connect() {
         Connection connection = null; // handles the connection
 
@@ -15,7 +16,7 @@ public class DataBaseConnection {
         } // end of try
 
         catch (SQLException sqlException) {
-            sqlException.printStackTrace();
+            throw new RuntimeException("Error in connecting to DATABASE", sqlException);
         } // end of catch
         return connection;
     } // end of connection method

@@ -7,6 +7,8 @@ public class Medication {
     private int batch;
     private double unityPrice;
 
+    public Medication() {} // end of no args constructor
+
     public Medication(String name, int quantity, int batch, double unityPrice){
         this.name = name;
         this.quantity = quantity;
@@ -14,9 +16,19 @@ public class Medication {
         this.unityPrice = unityPrice;
     } // end of constructor
 
+    @Override
+    public String toString () {
+        String medicationInformation = "id | name | quantity | batch | unity price\n" + id + "  |  " + name + "  |  " + quantity + "  |  " + batch + "  |  " + unityPrice;
+        return  medicationInformation;
+    }
+
     public long getId () {
         return id;
     } // end of id getter
+
+    public void setId (long id) {
+        this.id = id;
+    }
 
     public String getName(){
         return name;
