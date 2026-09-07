@@ -1,0 +1,32 @@
+.logo {
+    -fx-fit-width: 198px;
+    -fx-fit-height: 197px;
+    -fx-preserve-ratio: true;
+}
+
+.upperHbox {
+    -fx-background-color: #3c9a78;
+    -fx-pref-width: 508px;
+    -fx-pref-height: 197px;
+}
+
+.sideAnchorPane {
+    -fx-background-color: #d2ddd0;
+    -fx-pref-width: 260px;
+    -fx-pref-height: 718px;
+}
+
+.primaryButtons {
+    -fx-background-color: #f9faf6;
+    -fx-border-color: #000000;
+    -fx-border-width: 1px;
+    -fx-border-radius: 100px;
+    -fx-background-radius: 100px;
+    -fx-pref-width: 220px;
+    -fx-pref-height: 66px;
+}
+
+.primaryButtons:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 10, 0.2, 0, 4);
+    -fx-cursor: hand;
+}

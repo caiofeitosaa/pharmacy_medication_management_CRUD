@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="765.0" stylesheets="@homeStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="163.0" prefWidth="765.0" styleClass="upperHbox" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="198.0" fitWidth="259.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="sideAnchorPane" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="20.0" layoutY="61.0" mnemonicParsing="false" styleClass="primaryButtons" text="Add New Medication">
+               <font>
+                  <Font name="Serif Regular" size="18.0" />
+               </font></Button>
+            <Button layoutX="20.0" layoutY="194.0" mnemonicParsing="false" styleClass="primaryButtons" text="Delete Medication">
+               <font>
+                  <Font name="Serif Regular" size="18.0" />
+               </font></Button>
+            <Button layoutX="20.0" layoutY="327.0" mnemonicParsing="false" styleClass="primaryButtons" text="Update Medication">
+               <font>
+                  <Font name="Serif Regular" size="18.0" />
+               </font></Button>
+            <Button layoutX="20.0" layoutY="460.0" mnemonicParsing="false" styleClass="primaryButtons" text="Search Medication">
+               <font>
+                  <Font name="Serif Regular" size="18.0" />
+               </font></Button>
+            <Button layoutX="20.0" layoutY="590.0" mnemonicParsing="false" styleClass="primaryButtons" text="List All Medication">
+               <font>
+                  <Font name="Serif Regular" size="18.0" />
+               </font></Button>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="43.0" layoutY="75.0" prefHeight="191.0" prefWidth="419.0" text="Welcome to HealthPlus." textAlignment="CENTER" textFill="#40534d" wrapText="true">
+               <font>
+                  <Font name="Serif Bold" size="60.0" />
+               </font></Label>
+            <Label alignment="CENTER" layoutX="35.0" layoutY="335.0" prefHeight="82.0" prefWidth="435.0" text="Manage your medication inventory with ease.   Keep track of medications, quantities, batches, and prices — all in one place." textAlignment="CENTER" textFill="#60766e" wrapText="true">
+               <font>
+                  <Font name="Serif Bold" size="20.0" />
+               </font></Label>
+            <Label alignment="CENTER" layoutX="117.0" layoutY="603.0" prefHeight="25.0" prefWidth="271.0" text="Stay organized. Stay efficient." textAlignment="CENTER" textFill="#40534d">
+               <font>
+                  <Font name="Serif Bold" size="20.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
