@@ -10,7 +10,7 @@ import java.io.IOException;
 public class CrudApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(CrudApplication.class.getResource("/org/example/pharmacy_medication_management_crud/view/home.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(CrudApplication.class.getResource("/org/example/pharmacy_medication_management_crud/view/crud.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Medication Management System");
         stage.setScene(scene);

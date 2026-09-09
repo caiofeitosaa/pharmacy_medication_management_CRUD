@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="619.0" prefWidth="505.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.pharmacy_medication_management_crud.controller.CrudMenuController">
+   <children>
+      <Label layoutX="127.0" layoutY="21.0" text="Medication Management System">
+         <font>
+            <Font name="Serif Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="44.0" layoutY="71.0" prefHeight="33.0" prefWidth="56.0" text="Name:" underline="true" wrapText="true">
+         <font>
+            <Font name="Serif Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nameTextField" layoutX="108.0" layoutY="75.0" prefHeight="25.0" prefWidth="358.0" />
+      <Label layoutX="25.0" layoutY="131.0" prefHeight="33.0" prefWidth="72.0" text="Quantity:" underline="true" wrapText="true">
+         <font>
+            <Font name="Serif Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="quantityTextField" layoutX="108.0" layoutY="135.0" prefHeight="25.0" prefWidth="137.0" />
+      <Label layoutX="264.0" layoutY="131.0" prefHeight="33.0" prefWidth="47.0" text="Batch:" underline="true" wrapText="true">
+         <font>
+            <Font name="Serif Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="batchTextField" layoutX="332.0" layoutY="135.0" prefHeight="25.0" prefWidth="131.0" />
+      <Label contentDisplay="CENTER" layoutX="287.0" layoutY="186.0" prefHeight="33.0" prefWidth="25.0" text="ID:" textAlignment="JUSTIFY" underline="true">
+         <font>
+            <Font name="Serif Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="idTextField" layoutX="333.0" layoutY="190.0" prefHeight="25.0" prefWidth="131.0" />
+      <Label layoutX="49.0" layoutY="186.0" prefHeight="33.0" prefWidth="47.0" text="Price:" underline="true">
+         <font>
+            <Font name="Serif Regular" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="unityPriceTextField" layoutX="109.0" layoutY="190.0" prefHeight="25.0" prefWidth="137.0" />
+      <Button layoutX="35.0" layoutY="259.0" mnemonicParsing="false" onAction="#addButtonMenu" text="Add New Medication" />
+      <Button layoutX="196.0" layoutY="259.0" mnemonicParsing="false" text="Delete Medication" />
+      <Button layoutX="348.0" layoutY="259.0" mnemonicParsing="false" text="Update Medication" />
+      <Button layoutX="108.0" layoutY="310.0" mnemonicParsing="false" text="Seach Medication" />
+      <Button layoutX="276.0" layoutY="310.0" mnemonicParsing="false" text="List All Medication" />
+      <Separator layoutY="364.0" prefHeight="0.0" prefWidth="505.0" />
+      <TableView fx:id="medicationTable" layoutX="14.0" layoutY="377.0" prefHeight="229.0" prefWidth="478.0">
+        <columns>
+          <TableColumn fx:id="idCollumn" prefWidth="39.0" text="ID" />
+          <TableColumn fx:id="nameCollumn" prefWidth="176.0" text="Name" />
+            <TableColumn fx:id="quantityColumn" prefWidth="77.0" text="Quantity" />
+            <TableColumn fx:id="batchColumn" prefWidth="87.0" text="Batch" />
+            <TableColumn fx:id="priceColumn" prefWidth="98.0" text="Unity Price" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

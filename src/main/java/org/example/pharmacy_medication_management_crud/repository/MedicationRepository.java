@@ -31,7 +31,7 @@ public class MedicationRepository {
            statement = dataBaseConnection.connect().prepareStatement(saveStatement);
            statement.setString(1, medication.getName()); // each index is corresponding to the "?"
            statement.setInt(2, medication.getQuantity());
-           statement.setInt(3, medication.getBatch());
+           statement.setString(3, medication.getBatch());
            statement.setDouble(4, medication.getUnityPrice());
            statement.executeUpdate(); // for INSERT, DELETE, UPDATE use executeUpdate(), but for SELECT methods use executeQuery(), because SELECT returns data.
        } // end of try structure
@@ -102,7 +102,7 @@ public class MedicationRepository {
                 medication.setId(resultSet.getLong("id"));
                 medication.setName(resultSet.getString("name"));
                 medication.setQuantity(resultSet.getInt("quantity"));
-                medication.setBatch(resultSet.getInt("batch"));
+                medication.setBatch(resultSet.getString("batch"));
                 medication.setUnityPrice(resultSet.getDouble("unityPrice"));
 
                 medications.add(medication);
@@ -134,7 +134,7 @@ public class MedicationRepository {
                 medication.setId(resultSet.getLong("id"));
                 medication.setName(resultSet.getString("name"));
                 medication.setQuantity(resultSet.getInt("quantity"));
-                medication.setBatch(resultSet.getInt("batch"));
+                medication.setBatch(resultSet.getString("batch"));
                 medication.setUnityPrice(resultSet.getDouble("unityPrice"));
 
                 medications.add(medication);

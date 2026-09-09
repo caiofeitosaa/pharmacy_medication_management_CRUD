@@ -4,12 +4,12 @@ public class Medication {
     private long id;
     private String name;
     private int quantity;
-    private int batch;
+    private String batch;
     private double unityPrice;
 
     public Medication() {} // end of no args constructor
 
-    public Medication(String name, int quantity, int batch, double unityPrice){
+    public Medication(String name, int quantity, String batch, double unityPrice){
         this.name = name;
         this.quantity = quantity;
         this.batch = batch;
@@ -20,7 +20,7 @@ public class Medication {
     public String toString () {
         String medicationInformation = "id | name | quantity | batch | unity price\n" + id + "  |  " + name + "  |  " + quantity + "  |  " + batch + "  |  " + unityPrice;
         return  medicationInformation;
-    }
+    } // end of toString body
 
     public long getId () {
         return id;
@@ -46,11 +46,11 @@ public class Medication {
         this.quantity = quantity;
     } // end of quantity setter
 
-    public int getBatch() {
+    public String getBatch() {
         return batch;
     } // end of batch getter
 
-    public void setBatch(int batch) {
+    public void setBatch(String batch) {
         this.batch = batch;
     } // end of batch setter
 

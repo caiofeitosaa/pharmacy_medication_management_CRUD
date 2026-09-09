@@ -6,5 +6,6 @@ module org.example.pharmacy_medication_management_crud {
 
 
     opens org.example.pharmacy_medication_management_crud to javafx.fxml;
+    opens org.example.pharmacy_medication_management_crud.controller to javafx.fxml;
     exports org.example.pharmacy_medication_management_crud;
 }

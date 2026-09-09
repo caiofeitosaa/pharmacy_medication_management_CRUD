@@ -12,21 +12,7 @@ public class MedicationService {
 
     Scanner sc = new Scanner(System.in);
 
-    public void testSaveMethod () {
-        System.out.print("Enter the name of your Medication: ");
-        String name = sc.nextLine();
-
-        System.out.print("\nEnter the quantity of your Medication: ");
-        int quantity = sc.nextInt();
-
-        System.out.print("\nEnter the batch number of your Medication: ");
-        int batch = sc.nextInt();
-
-        System.out.print("\nEnter the unity price of your Medication: ");
-        double unityPrice = sc.nextDouble();
-
-        sc.nextLine();
-
+    public void saveMethod (String name, Integer quantity, String batch, Double unityPrice) {
         Medication medication = new Medication(name, quantity, batch, unityPrice);
         medicationRepository.save(medication);
     } // end of save method body
