@@ -108,4 +108,16 @@ public class CrudMenuController {
             } // end of service calling else body
         } // end of else body
     } // end of add button method
+
+    // FOCUS ON PUTTING THE DATABASE INFO INTO THE TABLEVIEW AND COLUMNS
+
+    // WORKING
+    @FXML
+    public void clearButtonMenu (ActionEvent event) {
+        nameTextField.setText(null);
+        quantityTextField.setText(null);
+        batchTextField.setText(null);
+        unityPriceTextField.setText(null);
+        idTextField.setText(null);
+    } // end of clear button method
 } // end of class body
