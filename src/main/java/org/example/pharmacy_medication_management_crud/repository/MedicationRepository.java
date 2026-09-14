@@ -139,10 +139,6 @@ public class MedicationRepository {
 
                 medications.add(medication);
             }
-
-            for (Medication medication : medications) {
-                System.out.println(medication);
-            }
             return medications;
         } // end of try structure
 

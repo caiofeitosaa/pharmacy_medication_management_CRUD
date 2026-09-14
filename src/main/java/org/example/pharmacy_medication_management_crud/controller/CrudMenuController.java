@@ -1,5 +1,9 @@
 package org.example.pharmacy_medication_management_crud.controller;
 
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,7 +13,7 @@ import javafx.scene.control.TextField;
 import org.example.pharmacy_medication_management_crud.models.Medication;
 import org.example.pharmacy_medication_management_crud.service.MedicationService;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class CrudMenuController {
 
@@ -110,6 +114,29 @@ public class CrudMenuController {
     } // end of add button method
 
     // FOCUS ON PUTTING THE DATABASE INFO INTO THE TABLEVIEW AND COLUMNS
+
+    @FXML
+    public void loadMedications() {
+        List<Medication> medications = medicationService.listAllMethod();
+
+        ObservableList<Medication> data = FXCollections.observableArrayList(medications);
+
+        medicationTable.setItems(data);
+    } // end of loadMedications body
+
+    @FXML
+    public void initialize() {
+        idCollumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId()));
+
+        nameCollumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+
+        quantityColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getQuantity()));
+
+        batchColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBatch()));
+
+        priceColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getUnityPrice()));
+        loadMedications();
+    } // end of init body
 
     // WORKING
     @FXML

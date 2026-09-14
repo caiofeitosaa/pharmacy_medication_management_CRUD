@@ -50,7 +50,7 @@
       <Button layoutX="109.0" layoutY="268.0" mnemonicParsing="false" text="Seach Medication" />
       <Button fx:id="clearButton" layoutX="277.0" layoutY="268.0" mnemonicParsing="false" onAction="#clearButtonMenu" prefHeight="25.0" prefWidth="113.0" text="Clear" />
       <Separator layoutX="1.0" layoutY="318.0" prefHeight="0.0" prefWidth="505.0" />
-      <TableView fx:id="medicationTable" layoutX="14.0" layoutY="377.0" prefHeight="229.0" prefWidth="478.0">
+      <TableView fx:id="medicationTable" layoutX="14.0" layoutY="377.0" onSort="#loadMedications" prefHeight="229.0" prefWidth="478.0">
         <columns>
           <TableColumn fx:id="idCollumn" prefWidth="39.0" text="ID" />
           <TableColumn fx:id="nameCollumn" prefWidth="176.0" text="Name" />

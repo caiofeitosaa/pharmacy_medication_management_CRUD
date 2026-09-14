@@ -4,6 +4,7 @@ import org.example.pharmacy_medication_management_crud.models.Medication;
 import org.example.pharmacy_medication_management_crud.repository.DataBaseConnection;
 import org.example.pharmacy_medication_management_crud.repository.MedicationRepository;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class MedicationService {
@@ -49,7 +50,7 @@ public class MedicationService {
         medicationRepository.search(name);
     } // end of search method body
 
-    public void testListAllMethod () {
-        medicationRepository.findAll();
+    public List<Medication> listAllMethod () {
+        return medicationRepository.findAll();
     }
 }
