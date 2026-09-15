@@ -51,10 +51,10 @@ public class CrudMenuController {
     @FXML
     public void addButtonMenu (ActionEvent event) { // ActionEvent is a java interface that deals with random events on Scene Builder
 
-        String nameTextFieldContent = nameTextField.getText(); // .getText method returns a String typed in the TextField node
-        String quantityTextFieldContent =  quantityTextField.getText(); // Intenger.parseInt method transform a String into an int
-        String batchTextFieldContent = batchTextField.getText();
-        String unityPriceTextFieldContent = unityPriceTextField.getText();
+        String nameTextFieldContent = nameTextField.getText().trim(); // .getText method returns a String typed in the TextField node
+        String quantityTextFieldContent =  quantityTextField.getText().trim(); // Intenger.parseInt method transform a String into an int
+        String batchTextFieldContent = batchTextField.getText().trim();
+        String unityPriceTextFieldContent = unityPriceTextField.getText().trim();
 
         if (nameTextFieldContent.isEmpty()) {
             alert.setTitle("Invalid Name");
@@ -115,18 +115,51 @@ public class CrudMenuController {
 
     // FOCUS ON PUTTING THE DATABASE INFO INTO THE TABLEVIEW AND COLUMNS
 
+
     @FXML
-    public void loadMedications() {
+    public void searchButtonMenu () {
+        String nameTextFieldContent = nameTextField.getText();
+        String batchTextFieldContent = batchTextField.getText();
+
+        if (nameTextFieldContent == null) {
+            nameTextFieldContent = "";
+        } // end of if body
+
+        if (batchTextFieldContent == null) {
+            batchTextFieldContent = "";
+        } // end of if body
+
+        nameTextFieldContent = nameTextFieldContent.trim(); // to make sure theres no space in the empty string
+        batchTextFieldContent = batchTextFieldContent.trim();
+
+        if (nameTextFieldContent.isEmpty() && batchTextFieldContent.isEmpty()) {
+            alert.setTitle("Invalid Name and Batch");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid name or a valid batch");
+            alert.showAndWait();
+        } // end of if body
+
+        else {
+            List<Medication> medication = medicationService.searchMethod(nameTextFieldContent, batchTextFieldContent);
+            ObservableList<Medication> data = FXCollections.observableArrayList(medication);
+            medicationTable.setItems(data);
+        } // end of else body
+    } // end of search button method
+
+    // LIST ALL BUTTON AND BASE TABLEVIEW
+    // WORKING
+    @FXML
+    public void reloadButtonMenu () {
         List<Medication> medications = medicationService.listAllMethod();
+        ObservableList<Medication> data = FXCollections.observableArrayList(medications); // allow us to see changes in the database
 
-        ObservableList<Medication> data = FXCollections.observableArrayList(medications);
-
-        medicationTable.setItems(data);
+        medicationTable.setItems(data); // adds the data to the tableview
     } // end of loadMedications body
 
+    // WORKING
     @FXML
-    public void initialize() {
-        idCollumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId()));
+    public void initialize () {
+        idCollumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getId())); // set each column value using CellDataFeatures and Lambda Expressions.
 
         nameCollumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
 
@@ -135,7 +168,8 @@ public class CrudMenuController {
         batchColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getBatch()));
 
         priceColumn.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getUnityPrice()));
-        loadMedications();
+
+        reloadButtonMenu(); // calls the loadMedication method to show the added data
     } // end of init body
 
     // WORKING

@@ -58,7 +58,7 @@ public class MedicationRepository {
     } // end of delete method
 
 
-    public void update (String newName, int newQuantity, int newBatch, double newPrice, Long id) {
+    public void update (String newName, int newQuantity, String newBatch, double newPrice, Long id) {
 
         String updateStatement = "UPDATE medication SET name = ?, quantity = ?, batch = ?, unityPrice = ? " + "WHERE id = ?;";
 
@@ -66,7 +66,7 @@ public class MedicationRepository {
             statement = dataBaseConnection.connect().prepareStatement(updateStatement);
             statement.setString(1, newName);
             statement.setInt(2, newQuantity);
-            statement.setInt(3, newBatch);
+            statement.setString(3, newBatch);
             statement.setDouble(4, newPrice);
             statement.setLong(5, id);
             int rowsUpdated = statement.executeUpdate(); // executeUpdate returns an Int for the number of Lines updated so:
@@ -83,20 +83,19 @@ public class MedicationRepository {
 
 
     // WORKING FINE
-    public ArrayList<Medication> search (String name) {
+    public ArrayList<Medication> search (String name, String batch) {
 
-        String searchStatement = "SELECT * FROM medication " + "WHERE name = ?;";
+        String searchStatement = "SELECT * FROM medication " + "WHERE name = ? OR batch = ?;";
 
         try {
             statement = dataBaseConnection.connect().prepareStatement(searchStatement);
             statement.setString(1, name);
+            statement.setString(2, batch);
             resultSet = statement.executeQuery(); // executeQuery returns DATA so i need to store it in a variable of ResultSet Type
             metaData = resultSet.getMetaData(); // metaData gets the DATA acquired from resultSet
-            int numberOfColumns = metaData.getColumnCount();
 
             ArrayList<Medication> medications = new ArrayList<>();
 
-            System.out.print("id name quantity batch unityPrice");
             while (resultSet.next()) {
                 Medication medication = new Medication();
                 medication.setId(resultSet.getLong("id"));
@@ -107,10 +106,6 @@ public class MedicationRepository {
 
                 medications.add(medication);
             } // end of while structure
-
-            for (Medication medication : medications) {
-                System.out.println(medication);
-            }
             return medications;
         } // end of try structure
 
