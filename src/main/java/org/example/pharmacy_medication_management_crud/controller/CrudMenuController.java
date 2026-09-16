@@ -113,7 +113,9 @@ public class CrudMenuController {
         } // end of else body
     } // end of add button method
 
+    @FXML
     public void deleteButtonMenu () {
+
         String idTextFieldContent = idTextField.getText().trim();
 
         if (idTextFieldContent.isEmpty() || idTextFieldContent == null) {
@@ -143,7 +145,74 @@ public class CrudMenuController {
     } // end of delete button method
 
     @FXML
+    public void updateButtonMenu () {
+
+        String nameTextFieldContent = nameTextField.getText().trim();
+        String quantityTextFieldContent =  quantityTextField.getText().trim();
+        String batchTextFieldContent = batchTextField.getText().trim();
+        String unityPriceTextFieldContent = unityPriceTextField.getText().trim();
+        String idTextFieldContent = idTextField.getText().trim();
+
+        if (nameTextFieldContent.isEmpty()) {
+            alert.setTitle("Invalid Name");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid name.");
+            alert.showAndWait();
+        } // end of name alert if body
+
+        else if (quantityTextFieldContent.isEmpty()) {
+            alert.setTitle("Invalid Quantity");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid quantity.");
+            alert.showAndWait();
+        } // end of quantity alert else if body
+
+        else if (batchTextFieldContent.isEmpty()) {
+            alert.setTitle("Invalid Batch");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid batch.");
+            alert.showAndWait();
+        } // end of batch alert else if body
+
+        else if (unityPriceTextFieldContent.isEmpty()) {
+            alert.setTitle("Invalid Price");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid price.");
+            alert.showAndWait();
+        } // end of price alert else if body
+
+        else if (idTextFieldContent.isEmpty()) {
+            alert.setTitle("Invalid ID");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid ID.");
+            alert.showAndWait();
+        } // end of id alert else if body
+
+        else {
+            try {
+                int quantity = Integer.parseInt(quantityTextFieldContent);
+                double unityPrice = Double.parseDouble(unityPriceTextFieldContent);
+                Long id = Long.parseLong(idTextFieldContent);
+
+                medicationService.updateMethod(nameTextFieldContent, quantity, batchTextFieldContent, unityPrice, id);
+                alert.setTitle("Success");
+                alert.setHeaderText(null);
+                alert.setContentText("Medication updated successfully.");
+                alert.showAndWait();
+            } // end of try body
+
+            catch (Exception e) {
+                alert.setTitle("Invalid Quantity, Price or ID");
+                alert.setHeaderText(null);
+                alert.setContentText("Please enter only numbers for Quantity, Price or ID.");
+                alert.showAndWait();
+            } // end of catch body
+        } // end of else body
+    } // end of update button method
+
+    @FXML
     public void searchButtonMenu () {
+
         String nameTextFieldContent = nameTextField.getText();
         String batchTextFieldContent = batchTextField.getText();
 
