@@ -107,14 +107,40 @@ public class CrudMenuController {
                 medicationService.saveMethod(nameTextFieldContent, quantity, batchTextFieldContent, unityPrice);
                 alert.setTitle("Success");
                 alert.setHeaderText(null);
-                alert.setContentText("Medication Added successfully");
+                alert.setContentText("Medication added successfully.");
                 alert.showAndWait();
             } // end of service calling else body
         } // end of else body
     } // end of add button method
 
-    // FOCUS ON PUTTING THE DATABASE INFO INTO THE TABLEVIEW AND COLUMNS
+    public void deleteButtonMenu () {
+        String idTextFieldContent = idTextField.getText().trim();
 
+        if (idTextFieldContent.isEmpty() || idTextFieldContent == null) {
+            alert.setTitle("Invalid ID");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter a valid ID.");
+            alert.showAndWait();
+        } // end of if body
+
+        else {
+            try {
+                Long idTextFieldContentInt = Long.parseLong(idTextFieldContent);
+                medicationService.deleteMethod(idTextFieldContentInt);
+                alert.setTitle("Success");
+                alert.setHeaderText(null);
+                alert.setContentText("Medication deleted successfully.");
+                alert.showAndWait();
+            } // end of try body
+
+            catch (NumberFormatException e) {
+                alert.setTitle("Invalid ID");
+                alert.setHeaderText(null);
+                alert.setContentText("Please enter only numbers for ID.");
+                alert.showAndWait();
+            } // end of catch body
+        } // end of else body
+    } // end of delete button method
 
     @FXML
     public void searchButtonMenu () {

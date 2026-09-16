@@ -45,7 +45,7 @@
       </Label>
       <TextField fx:id="unityPriceTextField" layoutX="109.0" layoutY="173.0" prefHeight="25.0" prefWidth="137.0" />
       <Button layoutX="36.0" layoutY="223.0" mnemonicParsing="false" onAction="#addButtonMenu" text="Add New Medication" />
-      <Button layoutX="197.0" layoutY="223.0" mnemonicParsing="false" text="Delete Medication" />
+      <Button layoutX="197.0" layoutY="223.0" mnemonicParsing="false" onAction="#deleteButtonMenu" text="Delete Medication" />
       <Button layoutX="346.0" layoutY="223.0" mnemonicParsing="false" text="Update Medication" />
       <Button layoutX="109.0" layoutY="268.0" mnemonicParsing="false" onAction="#searchButtonMenu" text="Seach Medication" />
       <Button fx:id="clearButton" layoutX="277.0" layoutY="268.0" mnemonicParsing="false" onAction="#clearButtonMenu" prefHeight="25.0" prefWidth="113.0" text="Clear" />

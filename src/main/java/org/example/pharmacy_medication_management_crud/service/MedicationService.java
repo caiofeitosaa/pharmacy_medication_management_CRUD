@@ -3,15 +3,11 @@ package org.example.pharmacy_medication_management_crud.service;
 import org.example.pharmacy_medication_management_crud.models.Medication;
 import org.example.pharmacy_medication_management_crud.repository.DataBaseConnection;
 import org.example.pharmacy_medication_management_crud.repository.MedicationRepository;
-
 import java.util.List;
-import java.util.Scanner;
 
 public class MedicationService {
     DataBaseConnection dataBaseConnection = new DataBaseConnection();
     MedicationRepository medicationRepository = new MedicationRepository(dataBaseConnection);
-
-    Scanner sc = new Scanner(System.in);
 
     public void saveMethod (String name, Integer quantity, String batch, Double unityPrice) {
         Medication medication = new Medication(name, quantity, batch, unityPrice);
