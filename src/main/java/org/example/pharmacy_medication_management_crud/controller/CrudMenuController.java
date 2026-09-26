@@ -4,7 +4,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -12,7 +11,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import org.example.pharmacy_medication_management_crud.models.Medication;
 import org.example.pharmacy_medication_management_crud.service.MedicationService;
-
 import java.util.List;
 
 public class CrudMenuController {
@@ -49,12 +47,14 @@ public class CrudMenuController {
 
     // WORKING
     @FXML
-    public void addButtonMenu (ActionEvent event) { // ActionEvent is a java interface that deals with random events on Scene Builder
+    public void addButtonMenu () { // ActionEvent is a java interface that deals with random events on Scene Builder
+
+        // if the batch is equal as one already in the database just change the quantity of the other one in the system
 
         String nameTextFieldContent = nameTextField.getText().trim(); // .getText method returns a String typed in the TextField node
         String quantityTextFieldContent =  quantityTextField.getText().trim(); // Intenger.parseInt method transform a String into an int
         String batchTextFieldContent = batchTextField.getText().trim();
-        String unityPriceTextFieldContent = unityPriceTextField.getText().trim();
+        String unityPriceTextFieldContent = unityPriceTextField.getText().trim().replace(",", ".");
 
         if (nameTextFieldContent.isEmpty()) {
             alert.setTitle("Invalid Name");
@@ -104,11 +104,29 @@ public class CrudMenuController {
             } // end of second else if for price
 
             else {
-                medicationService.saveMethod(nameTextFieldContent, quantity, batchTextFieldContent, unityPrice);
-                alert.setTitle("Success");
-                alert.setHeaderText(null);
-                alert.setContentText("Medication added successfully.");
-                alert.showAndWait();
+                // search to see if the medication (same batch) already exists
+                List<Medication> searchBatchMethod = medicationService.searchMethod(nameTextFieldContent, batchTextFieldContent);
+
+                // if it dont exist
+                if (searchBatchMethod.isEmpty()) {
+                    medicationService.saveMethod(nameTextFieldContent, quantity, batchTextFieldContent, unityPrice);
+                    alert.setTitle("Success");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Medication added successfully.");
+                    alert.showAndWait();
+                } // end of search batch if method
+
+                // if it exists
+                else {
+                    int newQuantityInt = Integer.parseInt(quantityTextFieldContent);
+                    newQuantityInt += medicationService.searchQuantity(nameTextFieldContent, batchTextFieldContent);
+
+                    medicationService.updateMethod(nameTextFieldContent, newQuantityInt, batchTextFieldContent, unityPrice, medicationService.searchId(nameTextFieldContent, batchTextFieldContent));
+                    alert.setTitle("Success");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Medication already exists, quantity was updated.");
+                    alert.showAndWait();
+                } // end of final else body
             } // end of service calling else body
         } // end of else body
     } // end of add button method
@@ -269,7 +287,7 @@ public class CrudMenuController {
 
     // WORKING
     @FXML
-    public void clearButtonMenu (ActionEvent event) {
+    public void clearButtonMenu () {
         nameTextField.setText(null);
         quantityTextField.setText(null);
         batchTextField.setText(null);

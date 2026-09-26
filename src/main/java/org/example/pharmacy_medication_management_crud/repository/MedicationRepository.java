@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MedicationRepository {
 
-    private DataBaseConnection dataBaseConnection; // for dependency injection
+    private final DataBaseConnection dataBaseConnection; // for dependency injection
 
     public MedicationRepository (DataBaseConnection dataBaseConnection) { // dependency injection, so the repository NEEDS DbConnection to exist
         this.dataBaseConnection = dataBaseConnection;
@@ -81,6 +81,49 @@ public class MedicationRepository {
         } // end of catch structure
     } // end of update method
 
+    public int searchQuantity (String name, String batch) {
+
+        String searchQuantityStatement = "SELECT quantity FROM medication " + "WHERE name = ? OR batch = ?;";
+
+        try {
+            statement = dataBaseConnection.connect().prepareStatement(searchQuantityStatement);
+            statement.setString(1, name);
+            statement.setString(2, batch);
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getInt("quantity");
+            } // end of if body
+
+            return 0;
+        } // end of try body
+
+        catch (Exception e) {
+            throw new RuntimeException("Error in searching quantity.", e);
+        } // end of catch body
+    } // end of search quantity method
+
+    public Long searchId (String name, String batch) {
+
+        String searchQuantityStatement = "SELECT id FROM medication " + "WHERE name = ? OR batch = ?;";
+
+        try {
+            statement = dataBaseConnection.connect().prepareStatement(searchQuantityStatement);
+            statement.setString(1, name);
+            statement.setString(2, batch);
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return resultSet.getLong("id");
+            } // end of if body
+
+            return 0L; // long
+        } // end of try body
+
+        catch (Exception e) {
+            throw new RuntimeException("Error in searching ID.", e);
+        } // end of catch body
+    } // end of search id method
 
     // WORKING FINE
     public ArrayList<Medication> search (String name, String batch) {

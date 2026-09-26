@@ -22,6 +22,14 @@ public class MedicationService {
         medicationRepository.update(name, quantity, batch, unityPrice, id);
     } // end of update method body
 
+    public int searchQuantity (String name, String batch) {
+        return medicationRepository.searchQuantity(name, batch);
+    } // end of search quantity body
+
+    public Long searchId (String name, String batch) {
+        return medicationRepository.searchId(name, batch);
+    } // end of search id body
+
     public List<Medication> searchMethod (String name, String batch) {
         return medicationRepository.search(name, batch);
     } // end of search method body
