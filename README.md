@@ -1,4 +1,4 @@
-# 💊 Pharmacy Medication Management
+# Pharmacy Medication Management
 
 A desktop application for managing pharmacy medications, with product registration, editing, and stock control. Built with Java and JavaFX, following the MVC architecture, with MySQL persistence through JDBC.
 
