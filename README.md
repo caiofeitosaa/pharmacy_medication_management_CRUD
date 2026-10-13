@@ -65,7 +65,7 @@ A desktop application for managing pharmacy medications, with product registrati
 - Fill in all the fields in the form: name, quantity, batch, and unit price.
 - Click Add medication.
 - The medication is saved to the database and automatically receives an id.
-- 
+  
 ### Deleting a medication
 - Deletion is done by the medication's id. To find the id:
 - Use the Search field, typing the medication's name or batch.
