@@ -9,7 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import org.example.pharmacy_medication_management_crud.models.Medication;
+import org.example.pharmacy_medication_management_crud.entities.Medication;
 import org.example.pharmacy_medication_management_crud.service.MedicationService;
 import java.util.List;
 
@@ -21,13 +21,19 @@ public class CrudMenuController {
     @FXML
     private TextField nameTextField;
     @FXML
+    private TextField nameTextField2;
+    @FXML
     private TextField quantityTextField;
     @FXML
     private TextField batchTextField;
     @FXML
+    private TextField batchTextField2;
+    @FXML
     private TextField unityPriceTextField;
     @FXML
     private TextField idTextField;
+    @FXML
+    private TextField idTextField2;
 
     // alert class is used to create a popup alert message
     Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -169,7 +175,7 @@ public class CrudMenuController {
         String quantityTextFieldContent =  quantityTextField.getText().trim();
         String batchTextFieldContent = batchTextField.getText().trim();
         String unityPriceTextFieldContent = unityPriceTextField.getText().trim();
-        String idTextFieldContent = idTextField.getText().trim();
+        String idTextFieldContent = idTextField2.getText().trim();
 
         if (nameTextFieldContent.isEmpty()) {
             alert.setTitle("Invalid Name");
@@ -231,8 +237,8 @@ public class CrudMenuController {
     @FXML
     public void searchButtonMenu () {
 
-        String nameTextFieldContent = nameTextField.getText();
-        String batchTextFieldContent = batchTextField.getText();
+        String nameTextFieldContent = nameTextField2.getText();
+        String batchTextFieldContent = batchTextField2.getText();
 
         if (nameTextFieldContent == null) {
             nameTextFieldContent = "";
@@ -242,7 +248,7 @@ public class CrudMenuController {
             batchTextFieldContent = "";
         } // end of if body
 
-        nameTextFieldContent = nameTextFieldContent.trim(); // to make sure theres no space in the empty string
+        nameTextFieldContent = nameTextFieldContent.trim(); // to make sure there no space in the empty string
         batchTextFieldContent = batchTextFieldContent.trim();
 
         if (nameTextFieldContent.isEmpty() && batchTextFieldContent.isEmpty()) {
@@ -294,4 +300,11 @@ public class CrudMenuController {
         unityPriceTextField.setText(null);
         idTextField.setText(null);
     } // end of clear button method
+
+    // WORKING
+    @FXML
+    public void clearButtonMenu2 () {
+        nameTextField2.setText(null);
+        batchTextField2.setText(null);
+    } // end of clear button 2 method
 } // end of class body

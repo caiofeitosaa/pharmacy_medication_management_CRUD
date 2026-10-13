@@ -1,6 +1,6 @@
 package org.example.pharmacy_medication_management_crud.repository;
 
-import org.example.pharmacy_medication_management_crud.models.Medication;
+import org.example.pharmacy_medication_management_crud.entities.Medication;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

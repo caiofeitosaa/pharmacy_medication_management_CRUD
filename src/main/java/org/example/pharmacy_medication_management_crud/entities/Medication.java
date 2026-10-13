@@ -1,4 +1,4 @@
-package org.example.pharmacy_medication_management_crud.models;
+package org.example.pharmacy_medication_management_crud.entities;
 
 public class Medication {
     private long id;
