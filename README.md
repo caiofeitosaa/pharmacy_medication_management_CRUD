@@ -65,6 +65,16 @@ A desktop application for managing pharmacy medications, with product registrati
 - Fill in all the fields in the form: name, quantity, batch, and unit price.
 - Click Add medication.
 - The medication is saved to the database and automatically receives an id.
+- If you add a medication with an existing name and batch number, its quantity is updated.
+
+### Searching a medication
+- For updating and deleting a medication the ID for that medication is needed.
+- Use the search function, searching by name or batch.
+- Click it on the medication on the table.
+
+### Updating a medication
+- After clicking on a medication, alter the component you want it.
+- Remember, the ID is required.
   
 ### Deleting a medication
 - Deletion is done by the medication's id. To find the id:
