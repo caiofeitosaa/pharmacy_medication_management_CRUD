@@ -30,6 +30,10 @@ public class MedicationService {
         return medicationRepository.searchId(name, batch);
     } // end of search id body
 
+    public List<Medication> searchExactMethod (String name, String batch) {
+        return medicationRepository.searchExact(name, batch);
+    }
+
     public List<Medication> searchMethod (String name, String batch) {
         return medicationRepository.search(name, batch);
     } // end of search method body

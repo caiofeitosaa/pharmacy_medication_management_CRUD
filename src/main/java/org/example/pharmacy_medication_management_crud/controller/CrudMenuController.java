@@ -9,6 +9,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import org.example.pharmacy_medication_management_crud.entities.Medication;
 import org.example.pharmacy_medication_management_crud.service.MedicationService;
 import java.util.List;
@@ -111,7 +112,7 @@ public class CrudMenuController {
 
             else {
                 // search to see if the medication (same batch) already exists
-                List<Medication> searchBatchMethod = medicationService.searchMethod(nameTextFieldContent, batchTextFieldContent);
+                List<Medication> searchBatchMethod = medicationService.searchExactMethod(nameTextFieldContent, batchTextFieldContent);
 
                 // if it dont exist
                 if (searchBatchMethod.isEmpty()) {
@@ -142,7 +143,7 @@ public class CrudMenuController {
 
         String idTextFieldContent = idTextField.getText().trim();
 
-        if (idTextFieldContent.isEmpty() || idTextFieldContent == null) {
+        if (idTextFieldContent.isEmpty()) {
             alert.setTitle("Invalid ID");
             alert.setHeaderText(null);
             alert.setContentText("Please enter a valid ID.");
@@ -175,7 +176,7 @@ public class CrudMenuController {
         String quantityTextFieldContent =  quantityTextField.getText().trim();
         String batchTextFieldContent = batchTextField.getText().trim();
         String unityPriceTextFieldContent = unityPriceTextField.getText().trim();
-        String idTextFieldContent = idTextField2.getText().trim();
+        String idTextFieldContent = idTextField.getText().trim();
 
         if (nameTextFieldContent.isEmpty()) {
             alert.setTitle("Invalid Name");
@@ -214,6 +215,10 @@ public class CrudMenuController {
 
         else {
             try {
+                if (unityPriceTextFieldContent.contains(",")) {
+                    unityPriceTextFieldContent = unityPriceTextFieldContent.replace(",", ".");
+                } // to turn "," into dots
+
                 int quantity = Integer.parseInt(quantityTextFieldContent);
                 double unityPrice = Double.parseDouble(unityPriceTextFieldContent);
                 Long id = Long.parseLong(idTextFieldContent);
@@ -265,6 +270,19 @@ public class CrudMenuController {
         } // end of else body
     } // end of search button method
 
+    @FXML
+    public void tableClick () {
+        Medication clickedMedication = medicationTable.getSelectionModel().getSelectedItem();
+
+        if (clickedMedication != null) {
+            nameTextField.setText(clickedMedication.getName());
+            batchTextField.setText(clickedMedication.getBatch());
+            quantityTextField.setText(String.valueOf(clickedMedication.getQuantity()));
+            unityPriceTextField.setText(String.valueOf(clickedMedication.getUnityPrice()));
+            idTextField.setText(String.valueOf(clickedMedication.getId()));
+        } // end of if body
+    } // end of table click method
+
     // LIST ALL BUTTON AND BASE TABLEVIEW
     // WORKING
     @FXML
@@ -306,5 +324,6 @@ public class CrudMenuController {
     public void clearButtonMenu2 () {
         nameTextField2.setText(null);
         batchTextField2.setText(null);
+        idTextField2.setText(null);
     } // end of clear button 2 method
 } // end of class body

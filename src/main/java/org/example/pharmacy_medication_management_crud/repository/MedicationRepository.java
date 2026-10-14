@@ -125,6 +125,34 @@ public class MedicationRepository {
         } // end of catch body
     } // end of search id method
 
+    public ArrayList<Medication> searchExact (String name, String batch) {
+
+        String sql = "SELECT * FROM medication WHERE name = ? AND batch = ?;";
+
+        try {
+            statement = dataBaseConnection.connect().prepareStatement(sql);
+            statement.setString(1, name);
+            statement.setString(2, batch);
+            resultSet = statement.executeQuery();
+
+            ArrayList<Medication> medications = new ArrayList<>();
+
+            while (resultSet.next()) {
+                Medication medication = new Medication();
+                medication.setId(resultSet.getLong("id"));
+                medication.setName(resultSet.getString("name"));
+                medication.setQuantity(resultSet.getInt("quantity"));
+                medication.setBatch(resultSet.getString("batch"));
+                medication.setUnityPrice(resultSet.getDouble("unityPrice"));
+                medications.add(medication);
+            }
+            return medications;
+        }
+        catch (SQLException error) {
+            throw new RuntimeException("Error in searching for medication.", error);
+        }
+    }
+
     // WORKING FINE
     public ArrayList<Medication> search (String name, String batch) {
 

@@ -32,25 +32,25 @@
          </font>
       </Label>
       <TextField fx:id="batchTextField" layoutX="509.0" layoutY="68.0" prefHeight="25.0" prefWidth="131.0" />
-      <Label contentDisplay="CENTER" layoutX="67.0" layoutY="478.0" prefHeight="33.0" prefWidth="25.0" text="ID:" textAlignment="JUSTIFY" underline="true">
+      <Label contentDisplay="CENTER" layoutX="74.0" layoutY="471.0" prefHeight="33.0" prefWidth="25.0" text="ID:" textAlignment="JUSTIFY" underline="true">
          <font>
             <Font name="Serif Regular" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="idTextField" layoutX="102.0" layoutY="482.0" prefHeight="25.0" prefWidth="332.0" />
+      <TextField fx:id="idTextField2" layoutX="109.0" layoutY="475.0" prefHeight="25.0" prefWidth="332.0" />
       <Label layoutX="349.0" layoutY="118.0" prefHeight="33.0" prefWidth="47.0" text="Price:" underline="true">
          <font>
             <Font name="Serif Regular" size="18.0" />
          </font>
       </Label>
       <TextField fx:id="unityPriceTextField" layoutX="409.0" layoutY="122.0" prefHeight="25.0" prefWidth="232.0" />
-      <Button layoutX="189.0" layoutY="166.0" mnemonicParsing="false" onAction="#addButtonMenu" prefHeight="39.0" prefWidth="128.0" text="Add New Medication" />
-      <Button layoutX="464.0" layoutY="475.0" mnemonicParsing="false" onAction="#deleteButtonMenu" prefHeight="39.0" prefWidth="128.0" text="Delete Medication" />
+      <Button layoutX="195.0" layoutY="171.0" mnemonicParsing="false" onAction="#addButtonMenu" prefHeight="39.0" prefWidth="128.0" text="Add New Medication" />
+      <Button layoutX="471.0" layoutY="468.0" mnemonicParsing="false" onAction="#deleteButtonMenu" prefHeight="39.0" prefWidth="128.0" text="Delete Medication" />
       <Button layoutX="478.0" layoutY="236.0" mnemonicParsing="false" onAction="#updateButtonMenu" prefHeight="33.0" prefWidth="128.0" text="Update Medication" />
       <Button layoutX="490.0" layoutY="324.0" mnemonicParsing="false" onAction="#searchButtonMenu" prefHeight="60.0" prefWidth="138.0" text="Seach Medication" />
-      <Button fx:id="clearButton" layoutX="370.0" layoutY="166.0" mnemonicParsing="false" onAction="#clearButtonMenu" prefHeight="39.0" prefWidth="128.0" text="Clear" />
+      <Button fx:id="clearButton" layoutX="376.0" layoutY="171.0" mnemonicParsing="false" onAction="#clearButtonMenu" prefHeight="39.0" prefWidth="128.0" text="Clear" />
       <Separator layoutX="11.0" layoutY="547.0" prefHeight="3.0" prefWidth="644.0" />
-      <TableView fx:id="medicationTable" layoutX="20.0" layoutY="609.0" onSort="#reloadButtonMenu" prefHeight="243.0" prefWidth="627.0">
+      <TableView fx:id="medicationTable" layoutX="20.0" layoutY="609.0" onMouseClicked="#tableClick" onSort="#reloadButtonMenu" prefHeight="243.0" prefWidth="627.0">
         <columns>
           <TableColumn fx:id="idCollumn" prefWidth="45.0" text="ID" />
           <TableColumn fx:id="nameCollumn" prefWidth="227.0" text="Name" />
@@ -75,15 +75,20 @@
       </Label>
       <Separator layoutX="14.0" layoutY="449.0" prefHeight="3.0" prefWidth="644.0" />
       <Button fx:id="clearButton2" layoutX="490.0" layoutY="397.0" mnemonicParsing="false" onAction="#clearButtonMenu2" prefHeight="25.0" prefWidth="138.0" text="Clear" />
-      <TextField fx:id="idTextField2" layoutX="72.0" layoutY="240.0" prefHeight="25.0" prefWidth="362.0" />
+      <TextField fx:id="idTextField" layoutX="72.0" layoutY="240.0" prefHeight="25.0" prefWidth="362.0" />
       <Label contentDisplay="CENTER" layoutX="37.0" layoutY="236.0" prefHeight="33.0" prefWidth="25.0" text="ID:" textAlignment="JUSTIFY" underline="true">
          <font>
             <Font name="Serif Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="37.0" layoutY="265.0" prefHeight="33.0" prefWidth="416.0" text="Search medication by name or batch, to get the information and the ID for updating the medication" wrapText="true">
+      <Label alignment="CENTER" layoutX="128.0" layoutY="296.0" prefHeight="33.0" prefWidth="416.0" text="Search medication and then click it on it on the table." wrapText="true">
          <font>
-            <Font name="Serif Regular" size="10.0" />
+            <Font name="Serif Regular" size="12.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="128.0" layoutY="516.0" prefHeight="33.0" prefWidth="416.0" text="CAREFUL, the delete function will delete the whole medication off the database." textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Serif Regular" size="12.0" />
          </font>
       </Label>
    </children>
